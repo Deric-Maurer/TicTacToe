@@ -4,8 +4,7 @@
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 # NEEDS
-# Game Reset Button
-# Can use nested While loops. Outer being While if true. This allows a continue to reset the program after the first while condludes.
+# Make a case for stalemates using the counter as an indicator
 
 # Initializes storage for Game
 while True:
@@ -46,7 +45,7 @@ while True:
                 game = "over"
         for i in range(1, 4):
             if grid[i] == grid[i+3] == grid[i+6]:
-                print(win_statement % (turn))
+                print(win_statement%(turn))
                 for i in range(1, 10, 3):
                     print(grid[i], grid[i + 1], grid[i + 2])
                 game = "over"
@@ -56,6 +55,12 @@ while True:
                 print(grid[i], grid[i + 1], grid[i + 2])
             game = "over"
         counter += 1
+        if counter == 10 and game != 'over':
+            print("Cat's Game!")
+            for i in range(1, 10, 3):
+                print(grid[i], grid[i + 1], grid[i + 2])
+            game = 'over'
+
         print("")
 
     # reset test
